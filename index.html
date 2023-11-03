@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="siteTitle" style="text-align: center; transform: translateX(35px);">MY DATABASE</div>
+        <div class="darkModeContainer">
+          <img src="./imgs/icons/add_field.png" alt="" height="25px">
+        </div>
+      </header>
+
+      <nav class="menubar">
+        <!-- light mode deprecated bcz code editor bg wasnt toggling :( -->
+        <!-- <div class="themeSwitcher">
+          <div>theme</div>
+        </div> -->
+      </nav>
+
+      <button data-send-btn class="submitbtn">
+        <div>CONNECT</div>
+      </button>
+
+      <nav class="responsebar">
+        <div>HISTORY</div>
+      </nav>
+
+      <article
+        style="align-items: center; justify-content: center"
+        class="forms"
+      >
+        <form data-form action="" method="get" class="formfield">
+          <div data-request-method class="dropdown">
+            <select data-req-type name="httpRequestType" id="dataReqType">
+              <option value="get" selected>GET</option>
+              <option value="post">POST</option>
+<!--               <option value="put">PUT</option>
+              <option value="patch">PATCH</option> -->
+              <option value="delete">DELETE</option>
+            </select>
+          </div>
+
+          <!-- URL INSERTOR -->
+          <div class="urlbar">
+            <input
+              data-url
+              type="url"
+              name="urlBox"
+              id="urlBox"
+              spellcheck="false"
+              placeholder="or create one"
+              required
+            />
+          </div>
+        </form>
+      </article>
+
+      <nav class="tabbar">
+        <section data-query-params-tab class="queryParamsTab">DATA ENTRY/UPDATE</section>
+        <section data-json-tab class="JSONTab">UPDATE VIA JSON</section>
+        <section data-headers-tab class="HeadersTab">SHOW TABLE</section>
+      </nav>
+
+      <!-- FIELD 1 -------------------------------------------------------- -->
+      <article class="tabfield">
+        <div class="queryWrapper">
+          <div class="queryField">
+            <div class="addField">
+              <button
+                data-add-query-params-field-btn
+                type="button"
+                class="addbtn"
+              >
+                ADD
+              </button>
+            </div>
+
+            <div class="keyValueField"></div>
+          </div>
+        </div>
+
+        <!-- FIELD 2 ------------------------------------------------------- -->
+        <div class="headerWrapper">
+
+          <div class="utilsRow">
+            
+              <input type="text" class="searchField button" placeholder="Search">
+            
+              <div class="" style="width: 5px;display: flex;align-items: center;justify-content: center;">|</div>
+              
+              <button class="sortByButton button">
+                <img src="./imgs/icons/sort_by.png" alt="" style="position:relative; height: 27px;top:-1px;">  
+              Sort By
+              </button>
+            
+              <button class="filterButton button">
+                <img src="./imgs/icons/filter.png" alt="" style="position:relative; height: 27px;top:-1px;">  
+                Filter
+              </button>
+              
+              <div class="" style="width: 5px;display: flex;align-items: center;justify-content: center;">|</div>
+
+              <button class="dropTableButton button">
+                <img src="./imgs/icons/drop_DB.png" alt="" style="position:relative; height: 25px;top:-1px; margin-right: 0;">  
+                Drop Database
+              </button>
+              
+          </div>
+          
+          <div class="tableField">
+
+          </div>  
+          
+
+        </div>
+
+        <!-- FIELD 3 -------------------------------------------------------- -->
+        <div class="jsonWrapper">
+          
+          <div class="utilsRow">
+            <button class="jsonDownloadButton button">
+              <img src="./imgs/icons/download_icon.png" alt="" height="25px">
+              <div class="" style="margin-left: 10px;">.json</div>
+            </button>
+            <button class="csvDownloadButton button">
+              <img src="./imgs/icons/download_icon.png" alt="" height="25px">
+              <div class="" style="margin-left: 10px;">.csv</div>
+            </button>
+          </div>
+          
+          <div id="editor">
+          </div>
+            
+            
+
+        </div>
+      </article>
+
+    </main>
+
+    <template data-key-value-template>
+      <div data-key-value-pair class="keyValPair">
+        <select
+          data-key
+          class="keyField"
+          spellcheck="false"
+          placeholder="Key"
+          name="dbKeyName"
+        >
+          <option value="1">Key</option>
+        </select>
+        <input
+          data-value
+          type="text"
+          class="valueField"
+          spellcheck="false"
+          placeholder="Value"
+        />
+        <button data-remove-btn class="btnRemove" type="button">
+          <i
+            class="fa fa-trash-o trashIcon"
+            style="font-size: 25px; color: #cf6679"
+          ></i>
+        </button>
+      </div>
+    </template>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"
+    ></script>
+    <script>
+      var exports = {};
+    </script>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

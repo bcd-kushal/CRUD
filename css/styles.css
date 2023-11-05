@@ -1,0 +1,587 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+  --bgcolor: #ebebeb;
+  --primarycard: #d7d9dc;
+  --hovercard: #b8d4eb;
+  --primarytext: #1b1b1b;
+  --secondarytext: #1f1610;
+  --accentcolor: rgba(41, 188, 154, 0.692);
+  --formHeight: calc(100vh - 110px);
+  --green: #179f56;
+  --red: #ab0032;
+  --redBorder: #e96264; 
+  --af: #3a3b3c;
+  --fontSize: 108%;
+  --fontFam: "Poppins";
+  --border1: rgba(100, 100, 100, 0.705);
+  --border2: rgba(65, 65, 65, 0.658);
+  --border3: rgba(4, 4, 4, 0.7);
+  --highlight: #3e6766;
+  --borderColor: #6d7b81;
+  --tableHeaderCol: #acc8d4;
+  --iconHover: rgba(150,150,150,0.18);
+  --redIcon: rgba(255, 215, 215, 0.27);
+  --redHover: rgba(226, 142, 127, 0.39);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--primarytext);
+  transition: 0.5s;
+}
+body {
+  font-family: var(--fontFam);
+  max-height: 100vh !important;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+main {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: var(--bgcolor);
+  display: grid;
+  place-items: center;
+  grid-template-areas:
+    "topbar   topbar    topbar"
+    "menubar  submitbtn responsebar"
+    "forms    forms     history"
+    "tabbar   tabbar    history"
+    "tabfield tabfield  history";
+  grid-template-columns: 8fr minmax(100px, 2fr) 2fr;
+  grid-template-rows: 40px 35px auto 35px auto;
+  align-items: stretch;
+  justify-content: stretch;
+}
+main > * {
+  justify-self: stretch;
+  align-self: stretch;
+  display: flex;
+  border: 0.05px solid var(--border1);
+}
+header {
+  grid-area: topbar;
+  background: var(--primarycard);
+  color: var(--primarytext);
+  letter-spacing: 7px;
+  font-weight: bolder;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--fontSize) * 1.23);
+  display: flex;
+
+}
+.darkModeContainer{
+  width: 70px;
+  border-left: 2px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  height: 100%;
+}
+.darkModeContainer:hover{
+  background: var(--iconHover);
+}
+
+.siteTitle{
+  width: calc( 100vw - 70px );
+  text-align: left;
+}
+nav {
+  background: var(--primarycard);
+  color: var(--secondarytext);
+  font-weight: 300;
+}
+.menubar {
+  grid-area: menubar;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.menubar > * {
+  border-right: 0.05px solid var(--border1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  transition: 0.25s;
+}
+/* 
+.themeSwitcher:hover {
+  background: var(--hovercard);
+  transition: 0.25s;
+} */
+.submitbtn {
+  grid-area: submitbtn;
+  align-items: center;
+  justify-content: center;
+  background: var(--accentcolor);
+  color: #b0b3b8 !important;
+  font-weight: bold;
+  transition: 0.5s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-size: calc(var(--fontSize) * 1.35);
+  font-family: var(--fontFam);
+  text-decoration: none;
+}
+.submitbtn:hover {
+  font-weight: bolder;
+  border: 2px solid var(--border3);
+  color: #e4e6eb !important;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  font-size: calc(var(--fontSize) * 1.39);
+}
+.responsebar {
+  grid-area: responsebar;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--fontSize) * 1.3);
+}
+.responsebar > * {
+  margin-left: 7px;
+}
+.forms {
+  grid-area: forms;
+  height: calc(var(--formHeight) / 6);
+}
+.formfield {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 85%;
+  height: 30%;
+  border-radius: 10px;
+}
+.dropdown {
+  position: relative;
+  margin: 5px;
+  width: 20%;
+}
+.dropdown::before {
+  content: "Request";
+  background: var(--bgcolor);
+  padding: 0 5px;
+  color: var(--secondarytext);
+  font-weight: bold;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: calc(var(--fontSize) * 0.8);
+  letter-spacing: 1px;
+}
+.urlbar {
+  position: relative;
+  margin: 5px;
+  width: 75%;
+}
+.urlbar::before {
+  content: "Database Name";
+  color: var(--secondarytext);
+  font-weight: bold;
+  position: absolute;
+  top: -10px;
+  left: calc(12px);
+  font-size: calc(var(--fontSize) * 0.8);
+  letter-spacing: 1px;
+  background: var(--bgcolor);
+  padding: 0 5px;
+}
+.output {
+  grid-area: history;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+}
+.tabbar {
+  grid-area: tabbar;
+  display: grid;
+  grid-template-areas: "query  headers   json";
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.tabbar > * {
+  background: transparent;
+  border: 0.05px solid var(--border1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.tabfield {
+  grid-area: tabfield;
+  height: calc(var(--formHeight) * 0.85);
+  display: grid;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.tabfield > * {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  color: var(--primarytext);
+  overflow: scroll;
+}
+select {
+  background: var(--bgcolor);
+  color: var(--primarytext);
+  border-radius: 10px;
+  padding: 10px 5px 5px 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.6s;
+  width: 100%;
+  font-size: calc(var(--fontSize) * 1.45);
+  font-family: var(--fontFam);
+}
+input:hover,
+select:hover {
+  border: 1px solid var(--highlight);
+  /* background: var(--primarycard); */
+  transition: 0.6s;
+}
+input:focus {
+  outline: none;
+}
+input {
+  width: 100%;
+  background: var(--bgcolor);
+  color: var(--primarytext);
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 15px 7px 15px;
+  border: 1.2px solid var(--border2);
+  transition: 0.6s;
+  font-size: calc(var(--fontSize) * 1.45);
+  font-family: var(--fontFam);
+}
+.queryParamsTab {
+  grid-area: query;
+  background: var(--hovercard);
+  font-weight: bold;
+  transition: 0.2s;
+  font-size: calc(var(--fontSize) * 1.35);
+}
+.HeadersTab {
+  grid-area: headers;
+  transition: 0.2s;
+  font-size: calc(var(--fontSize) * 1.35);
+}
+.JSONTab {
+  grid-area: json;
+  transition: 0.2s;
+  font-size: calc(var(--fontSize) * 1.35);
+}
+.queryParamsTab:hover,
+.HeadersTab:hover,
+.JSONTab:hover {
+  font-weight: bold;
+  transition: 0.2s;
+  letter-spacing: 1px;
+  font-size: calc(var(--fontSize) * 1.35);
+}
+.headerWrapper,
+.jsonWrapper {
+  padding: 20px;
+  display: none;
+}
+.queryField,
+.headerField {
+  display: grid;
+  grid-template-areas: "addbtn  keyvalpairs";
+  grid-template-columns: 1fr 4.5fr;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.addField {
+  position: relative;
+  grid-area: addbtn;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 10vw;
+}
+.keyValueField {
+  grid-area: keyvalpairs;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 25px 25px 10px 25px;
+  max-width: 50vw;
+}
+.keyValueField > * {
+  margin-bottom: 15px;
+  width: 93%;
+  border-radius: 10px;
+}
+.addbtn {
+  width: 54%;
+  background: transparent;
+  border: 1.4px solid var(--green);
+  border-radius: 10px;
+  color: var(--green);
+  padding: 4px 8px;
+  margin: 25px 0 0 0;
+  transition: 0.5s;
+  cursor: pointer;
+  letter-spacing: 1.3px;
+  font-size: calc(var(--fontSize) * 1.6);
+  font-family: var(--fontFam);
+}
+.addbtn:hover {
+  color: #e4e6eb;
+  background: var(--green);
+  border: 0.5px solid var(--border2);
+  font-weight: bold;
+  transition: 0.5s;
+  /* box-shadow: 0 0 15px #00b353; */
+}
+.keyValPair {
+  display: flex;
+  overflow: hidden;
+}
+.keyField {
+  border-radius: 10px 0 0 10px;
+  font-size: calc(var(--fontSize) * 1.65);
+  width: 27%;
+}
+.valueField {
+  border-radius: 0 0;
+  font-size: calc(var(--fontSize) * 1.65);
+  width: 67%;
+}
+.urlbar input[type="text"]:focus {
+  box-shadow: 0 0 10px white;
+}
+.btnRemove {
+  border-radius: 0 10px 10px 0;
+  border: none;
+  background: transparent;
+  border: 1.4px solid var(--redBorder);
+  padding: 0 15px;
+  transition: 0.4s;
+  cursor: pointer;
+  width: 8%;
+}
+.btnRemove:hover {
+  background: var(--redBorder);
+  color: var(--primarytext);
+  transition: 0.4s;
+}
+.btnRemove:hover > * {
+  filter: grayscale(1) brightness(10%);
+  transition: 0.4s;
+}
+.responseWrapper {
+  display: none;
+  width: 100%;
+  min-height: 40%;
+  height: auto;
+  border: 1.2px solid var(--border2);
+}
+.responseBox {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  font-size: calc(var(--fontSize) * 1.46);
+  grid-template-areas:
+    "status     status"
+    "bodytab    headertab"
+    "ressec     ressec";
+  align-items: stretch;
+  justify-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 35px auto;
+}
+.statusbar {
+  grid-area: status;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.statusbar > * {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 15px;
+  border: 1.2px solid var(--border2);
+}
+.bodyResponseTab {
+  grid-area: bodytab;
+  background: var(--primarycard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1.2px solid var(--border2);
+  transition: 0.5s;
+  background: var(--hovercard);
+  font-weight: bold;
+}
+.headerResponseTab {
+  grid-area: headertab;
+  background: var(--primarycard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1.2px solid var(--border2);
+  transition: 0.2s;
+}
+.bodyResponseTab:hover,
+.headerResponseTab:hover {
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+.answerContainer {
+  grid-area: ressec;
+  height: inherit;
+  display: grid;
+  max-height: 65vh;
+}
+
+.answerContainer > * {
+  position: relative;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  display: block;
+  padding: 10px;
+}
+.bodyAnsContainer,
+.bodyAnswer,
+.headerAnsContainer,
+.headerAnswer {
+  height: 100%;
+  width: 100%;
+  color: var(--primarytext);
+  padding: 10px;
+}
+.bodyAnsContainer {
+  height: 50vh;
+}
+.headerAnsContainer {
+  padding: 0;
+  display: none;
+}
+.headerAnswer {
+  height: auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-content: stretch;
+  justify-content: stretch;
+  font-size: 100%;
+}
+.headerAnswer > * {
+  border: 1.2px solid var(--border2);
+  min-height: 45px;
+  padding: 10px;
+}
+
+.bodyAnsContainer {
+  overflow: scroll;
+}
+#editor {
+  height: calc( 100% - 70px );
+  position: relative;
+  width: 100%;
+  font-size: 139%;
+  font-family: consolas;
+  border: 0.5px solid var(--border1);
+}
+#responseEditor {
+  font-size: 85%;
+}
+.keyField > option{
+  color: var(--highlight);
+}
+
+.utilsRow > *, .jsonDownloadButton, .csvDownloadButton{
+  font-size: 1.1vw;
+  cursor: pointer;
+  padding: 10px;
+  min-height: 30px;
+  max-height: 45px;
+  margin-left: 20px;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+}
+
+.csvDownloadButton{
+  width: 105px;
+}
+
+.utilsRow{
+  display: flex;
+  height: 35px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.searchField{
+  width: 20vw;
+  cursor: text;
+}
+
+.filterButton{
+  width: 100px;
+}
+
+.sortByButton{
+  width: 120px;
+}
+
+
+button{
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  border: 1.2px solid var(--border2);
+}
+button:hover{
+  background: var(--iconHover);
+}
+
+.dropTableButton{
+  width: 190px;
+  border-color: var(--redBorder);
+  color: var(--redBorder);
+  background-color: var(--redIcon);
+}
+.dropTableButton:hover{
+  background-color: var(--redHover);
+}
+
+.tableField{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: calc( 100% - 70px );
+  border: .5px solid var(--borderColor);
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
+
+.tableDB{
+  height: auto;
+  min-width: 100%;
+  max-width: 100%;
+  /* border: 1.5px solid var(--borderColor) !important; */
+}

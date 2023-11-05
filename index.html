@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRUD</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
 
     <link
       rel="stylesheet"
@@ -16,7 +16,7 @@
       <header>
         <div class="siteTitle" style="text-align: center; transform: translateX(35px);">MY DATABASE</div>
         <div class="darkModeContainer">
-          <img src="./imgs/icons/add_field.png" alt="" height="25px">
+          <img src="./imgs/icons/lightMode.png" class="themeIcon" alt="" height="25px">
         </div>
       </header>
 
@@ -111,7 +111,7 @@
               <div class="" style="width: 5px;display: flex;align-items: center;justify-content: center;">|</div>
 
               <button class="dropTableButton button">
-                <img src="./imgs/icons/drop_DB.png" alt="" style="position:relative; height: 25px;top:-1px; margin-right: 0;">  
+                <img src="./imgs/icons/dropDB_red.png" alt="" style="position:relative; height: 25px;top:-1px; margin-right: 0;">  
                 Drop Database
               </button>
               
@@ -182,6 +182,8 @@
     <script>
       var exports = {};
     </script>
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/toggleDarkMode.js"></script>
+    <script type="module" src="./js/toggleTabs.js"></script>
   </body>
 </html>

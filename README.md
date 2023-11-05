@@ -16,6 +16,7 @@ Install locally then run the following:
 > ``npm i -D pretty-bytes`` 
 <br><br>
 In ``package.json`` add ``"start": "snowpack dev"`` to ``"scripts"`` field
+<br>
 At last, ``npm run start`` to start the frontend
 
 -------------------------------------------------------

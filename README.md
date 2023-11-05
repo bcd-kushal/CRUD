@@ -5,7 +5,9 @@ This application uses ``Planetscale`` for its database
 Database type used: ``SQL``
 
 Backend API: 
+<br>
 Backend language used: ``PHP``
+<br>
 Hosting Service: ``railway.app``
 
 Install locally then run the following:

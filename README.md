@@ -13,7 +13,8 @@ Install locally then run the following:
 > ``npm i axios`` <br>
 > ``npm i -D pretty-bytes`` 
 <br><br>
-``npm run start`` to start the frontend
+In ``package.json`` add ``"start": "snowpack dev"`` to ``"scripts"`` field
+At last, ``npm run start`` to start the frontend
 
 -------------------------------------------------------
 

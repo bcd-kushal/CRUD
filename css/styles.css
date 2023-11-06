@@ -19,6 +19,7 @@
   --highlight: #3e6766;
   --borderColor: #6d7b81;
   --tableHeaderCol: #acc8d4;
+  --hoverTableShade: rgba(41, 188, 154, 0.19);
   --iconHover: rgba(150,150,150,0.18);
   --redIcon: rgba(255, 215, 215, 0.27);
   --redHover: rgba(226, 142, 127, 0.39);
@@ -584,4 +585,23 @@ button:hover{
   min-width: 100%;
   max-width: 100%;
   /* border: 1.5px solid var(--borderColor) !important; */
+}
+
+.sortBox,.filterBox{
+  position: absolute;
+  height: 100px;
+  width: 250px;
+  top: 0;
+  left: 0;
+  background: var(--primarycard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.2px solid var(--border2);
+  visibility: hidden;
+  box-shadow: 0 0 12px 1.85px var(--border2);
+}
+
+.seperator{
+  cursor: default;
 }

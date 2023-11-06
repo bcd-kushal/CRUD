@@ -1,0 +1,19 @@
+{  
+    "--bgcolor":        [ "#ebebeb", "#121212" ],
+    "--primarycard":    [ "#d7d9dc", "#191919" ],
+    "--hovercard":      [ "#b8d4eb", "#1c1a17" ],
+    "--primarytext":    [ "#1b1b1b", "#d6d6d6" ],
+    "--secondarytext":  [ "#1f1610", "#e9a476" ],
+    "--accentcolor":    [ "rgba(41, 188, 154, 0.692)", "rgba(14, 74, 60, 0.692)" ],
+    "--green":          [ "#179f56", "#179f56" ],
+    "--red":            [ "#ab0032", "#ab0032" ],
+    "--redBorder":      [ "#db506a", "#db506a" ],
+    "--af":             [ "#3a3b3c", "#b3b6b9" ],
+    "--border1":        [ "rgba(100, 100, 100, 0.705)", "rgba(229, 229, 229, 0.705)" ],
+    "--border2":        [ "rgba(65, 65, 65, 0.658)", "rgba(173, 173, 173, 0.658)" ],
+    "--border3":        [ "rgba(4, 4, 4, 0.7)", "rgba(105, 105, 105, 0.7)" ],
+    "--highlight":      [ "#3e6766", "#245e5d" ],
+    "--borderColor":    [ "#6d7b81", "#98a9b0" ],
+    "--tableHeaderCol": [ "#acc8d4", "#28444f" ],
+    "--redIcon":        [ "rgba(255, 215, 215, 0.27)", "transparent" ]
+}

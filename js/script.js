@@ -1,5 +1,6 @@
 import axios from "axios";
 import prettyBytes from "pretty-bytes";
+import API_KEY from "./json/credentials.json";
 
 //css custom variables
 var rootStylesVariables = getComputedStyle( document.documentElement );
@@ -17,7 +18,7 @@ export const DB_DATA = {
 
 
 
-const API_ENDPOINT = "https://candies-production.up.railway.app/";
+const API_ENDPOINT = API_KEY["API_KEY"];
 const downloadJSONTableData = document.querySelector(".jsonDownloadButton");
 const downloadCSVTableData = document.querySelector(".csvDownloadButton");
 const dropTableButton = document.querySelector(".dropTableButton");
@@ -121,6 +122,14 @@ function fetchColNamesOfCurrDB(){
 }
 
 
+function camelCaseToNormalCase( camelCase ){
+
+    const normalText = camelCase.replace(/([a-z])([A-Z])/g, '$1 $2');
+    return normalText.charAt(0).toUpperCase() + normalText.slice(1).trim();
+            // ^ to capitalize first letter     // ^ remove trailing spaces
+            
+}
+
 function createTableFromRowData(){
     const colLen = DB_DATA.totalDataCols;
     const DATA_OBJ = JSON.parse(DB_DATA.allTableData);
@@ -141,7 +150,7 @@ function createTableFromRowData(){
 
     for( var i=0; i<colLen; i++ ){
         const th = document.createElement("th");
-        th.textContent = DB_DATA.tableColNames[i];
+        th.textContent = camelCaseToNormalCase( DB_DATA.tableColNames[i] );
         headerRow.appendChild(th);
 
         //add CSS
@@ -216,7 +225,7 @@ setTimeout(() => {
     //add CSS to it
     document.getElementById("db_table").classList.add("tableDB");
 
-}, 9.2*1000);
+}, 9*1000);
 //---------------------------------------------------------------------
 
 

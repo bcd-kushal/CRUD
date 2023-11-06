@@ -67,8 +67,8 @@
 
       <nav class="tabbar">
         <section data-query-params-tab class="queryParamsTab">DATA ENTRY/UPDATE</section>
-        <section data-json-tab class="JSONTab">UPDATE VIA JSON</section>
-        <section data-headers-tab class="HeadersTab">SHOW TABLE</section>
+        <section data-json-tab class="JSONTab">DOWNLOAD DATA</section>
+        <section data-headers-tab class="HeadersTab">SHOW/EDIT TABLE</section>
       </nav>
 
       <!-- FIELD 1 -------------------------------------------------------- -->
@@ -90,13 +90,20 @@
         </div>
 
         <!-- FIELD 2 ------------------------------------------------------- -->
+        <div class="sortBox">
+          <div class="">sorting content</div>
+        </div>
+        <div class="filterBox">
+          <div class="">filtering content</div>
+        </div>
+                        <!--==========================-->
         <div class="headerWrapper">
 
           <div class="utilsRow">
             
               <input type="text" class="searchField button" placeholder="Search">
             
-              <div class="" style="width: 5px;display: flex;align-items: center;justify-content: center;">|</div>
+              <div class="seperator" style="width: 5px;display: flex;align-items: center;justify-content: center;">|</div>
               
               <button class="sortByButton button">
                 <img src="./imgs/icons/sort_by.png" alt="" style="position:relative; height: 27px;top:-1px;">  
@@ -108,7 +115,7 @@
                 Filter
               </button>
               
-              <div class="" style="width: 5px;display: flex;align-items: center;justify-content: center;">|</div>
+              <div class="seperator" style="width: 5px;display: flex;align-items: center;justify-content: center;">|</div>
 
               <button class="dropTableButton button">
                 <img src="./imgs/icons/dropDB_red.png" alt="" style="position:relative; height: 25px;top:-1px; margin-right: 0;">  
@@ -118,7 +125,7 @@
           </div>
           
           <div class="tableField">
-
+            <div class="noResult"></div>
           </div>  
           
 
@@ -185,5 +192,9 @@
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/toggleDarkMode.js"></script>
     <script type="module" src="./js/toggleTabs.js"></script>
+    <script type="module" src="./js/searchFilter.js"></script>
+    <script type="module" src="./js/sortBy_filter.js"></script>
+    <script type="module" src="./js/tableHighlightCell.js"></script>
+
   </body>
 </html>

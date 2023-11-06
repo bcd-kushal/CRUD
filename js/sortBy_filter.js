@@ -1,4 +1,4 @@
-import themeColors from "./json/themeShades.json";
+import themeColors from "../json/themeShades.json";
 
 const sortButton = document.querySelector(".sortByButton");
 const filterButton = document.querySelector(".filterButton");

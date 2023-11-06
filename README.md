@@ -4,7 +4,7 @@ This application uses ``Planetscale`` for its database
 
 Database type used: ``SQL``
 
-Backend API: 
+Backend API: <a>https://candies-production.up.railway.app/</a>
 <br>
 Backend language used: ``PHP``
 <br>

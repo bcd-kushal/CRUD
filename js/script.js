@@ -1,6 +1,6 @@
 import axios from "axios";
 import prettyBytes from "pretty-bytes";
-import API_KEY from "./json/credentials.json";
+import API_KEY from "../json/credentials.json";
 
 //css custom variables
 var rootStylesVariables = getComputedStyle( document.documentElement );
@@ -127,7 +127,7 @@ function camelCaseToNormalCase( camelCase ){
     const normalText = camelCase.replace(/([a-z])([A-Z])/g, '$1 $2');
     return normalText.charAt(0).toUpperCase() + normalText.slice(1).trim();
             // ^ to capitalize first letter     // ^ remove trailing spaces
-            
+
 }
 
 function createTableFromRowData(){

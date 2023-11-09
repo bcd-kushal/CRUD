@@ -76,7 +76,7 @@ header {
   display: flex;
 
 }
-.darkModeContainer{
+.darkModeContainer,.usernameField{
   width: 70px;
   border-left: 2px solid var(--border2);
   display: flex;
@@ -86,10 +86,19 @@ header {
   z-index: 10;
   height: 100%;
 }
-.darkModeContainer:hover{
+.darkModeContainer:hover,.usernameField:hover{
   background: var(--iconHover);
+  text-decoration: underline;
 }
-
+.usernameField{
+  min-width: 130px;
+  width: auto;
+  font-size: 80%;
+  letter-spacing: normal;
+}
+.username{
+  margin-left: 10px;
+}
 .siteTitle{
   width: calc( 100vw - 70px );
   text-align: left;
